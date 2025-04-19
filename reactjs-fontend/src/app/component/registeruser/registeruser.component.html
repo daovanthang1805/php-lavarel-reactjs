@@ -1,0 +1,32 @@
+
+<form action="" class="form mt-3 " style="border-style: solid; padding: 20px; width: 400px; background-color:aqua;">
+    <h3 style="color: red" class="mb-3">Đăng Ký User</h3>
+    <div class="mb-3">
+        <label for="username" class="form-label">Name</label>
+        <input type="text" class="form-control" #username>
+    </div>
+    
+    <div class="mb-3">
+        <label for="useremail" class="form-label">email</label>
+        <input type="text" class="form-control" #useremail>
+    </div>
+    
+    <div class="mb-3">
+        <label for="userpassword" class="form-label">Mật Khẩu</label>
+        <input type="password" class="form-control" #userpassword>
+    </div>
+    
+    <div class="mb-3">
+        <label for="passwordconfirm" class="form-label">Mật Khẩu xác nhận</label>
+        <input type="password" class="form-control" #passwordconfirm>
+    </div>
+    <div class="mb-3">
+        <button type="button" (click)="add(username.value, useremail.value, userpassword.value, passwordconfirm.value); username.value=''; useremail.value=''; userpassword.value='';passwordconfirm.value=''" routerLink="/">Register</button>
+    </div>
+</form>
+
+
+
+
+
+

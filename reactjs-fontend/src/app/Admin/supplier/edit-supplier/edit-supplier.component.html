@@ -1,0 +1,27 @@
+<app-headeradmin></app-headeradmin>
+<h3 style="color: red" class="mb-3">Cập Nhật Nhà Cung Cấp</h3>
+<div class="mb-3">
+    <label for="Suppliername" class="form-label">Name</label>
+    <input type="text" class="form-control" [(ngModel)]="supplier.SUB_Name" #Suppliername>
+</div>
+
+<div class="mb-3">
+    <label for="Supplierphone" class="form-label">Phone</label>
+    <input type="text" class="form-control" [(ngModel)]="supplier.SUB_Phone" #Supplierphone>
+</div>
+
+<div class="mb-3">
+    <label for="Supplieremail" class="form-label">Email</label>
+    <input type="email" class="form-control" [(ngModel)]="supplier.SUB_Email" #Supplieremail>
+</div>
+
+<div class="mb-3">
+    <label for="Supplierdesc" class="form-label">Mô Tả</label>
+    <input type="text" class="form-control" [(ngModel)]="supplier.SUB_desc" #Supplierdesc>
+</div>
+
+<div class="mb-3">
+    <button type="button" (click)="update(Suppliername.value, Supplierphone.value, Supplieremail.value, Supplierdesc.value)" routerLink="/supplieradmin">update</button>
+</div>
+<app-footeradmin></app-footeradmin>
+

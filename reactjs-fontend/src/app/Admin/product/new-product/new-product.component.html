@@ -1,0 +1,109 @@
+<app-headeradmin></app-headeradmin>
+<!-- <div class="mb-3">
+    <label for="productname" class="form-label">Name Product</label>
+    <input type="text" class="form-control" #productname>
+</div>
+
+<div class="mb-3">
+    <label for="productprice" class="form-label">Giá</label>
+    <input type="text" class="form-control" #productprice>
+</div>
+
+<div class="mb-3">
+    <label for="catid" class="form-label">Loại</label>
+    <input type="text" class="form-control" #catid>
+
+</div>
+<div class="mb-3">
+    <label for="productstatus" class="form-label">Trạng Thái</label>
+    <input type="text" class="form-control" #productstatus>
+</div>
+<div class="mb-3">
+    <label for="productdesc" class="form-label">Mô Tả</label>
+    <input type="text" class="form-control" #productdesc>
+</div>
+<div class="mb-3">
+    <label for="productsl" class="form-label">Số Lượng</label>
+    <input type="text" class="form-control" #productsl>
+</div>
+<div class="mb-3">
+    <label for="productimage" class="form-label">Ảnh</label>
+    <input type="text" class="form-control" #productimage>
+</div>
+
+
+
+<div class="mb-3">
+    
+    <button type="button" (click)="add(productname.value, productprice.value, catid.value, productstatus.value, productdesc.value, productsl.value, productimage.value); productname.value=''; productprice.value=''; catid.value=''; productstatus.value=''; productdesc.value=''; productsl.value=''; productimage.value=''"  routerLink="/productadmin">Add</button>
+</div> -->
+
+<form (ngSubmit)="onsubmit()" [formGroup]="productForm" class="mb-3">
+    <div class="card">
+        <div class="card-header" style="color: red; background-color:aqua;">
+            Add New Product
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+              <label for="productname">product name:</label>
+              <input type="text" class="form-control" name="productname" formControlName="productname" id="productname" aria-describedby="productnameHid" placeholder="product name">
+              <small id="productnameHid" *ngIf="!productForm.get('productname')?.valid && productForm.get('productname')?.touched" class="form-text text-muted">Product Name is required</small>
+            </div>
+            <div class="form-group">
+                <label for="productprice">product price:</label>
+                <input type="text" class="form-control" name="productprice" formControlName="productprice" id="productprice" aria-describedby="productpriceHid" placeholder="product price">
+                <small id="productpriceHid" *ngIf="!productForm.get('productprice')?.valid && productForm.get('productprice')?.touched" class="form-text text-muted">Product Price is required</small>
+            </div>
+            <div class="form-group">
+                <label for="productstatus">product status:</label>
+                <input type="text" class="form-control" name="productstatus" formControlName="productstatus" id="productstatus" aria-describedby="productstatusHid" placeholder="product status">
+                <small id="productstatusHid" *ngIf="!productForm.get('productstatus')?.valid && productForm.get('productstatus')?.touched" class="form-text text-muted">Product status is required</small>
+            </div>
+            <div class="form-group">
+                <label for="productdesc">product desc:</label>
+                
+                <input type="text" class="form-control" name="productdesc" formControlName="productdesc" id="productdesc" aria-describedby="productdescHid" placeholder="product desc">
+                <small id="productdescHid" *ngIf="!productForm.get('productdesc')?.valid && productForm.get('productdesc')?.touched" class="form-text text-muted">Product desc is required</small>
+            </div>
+            <div class="form-group">
+                <label for="productsl">product count:</label>
+                <input type="text" class="form-control" name="productsl" formControlName="productsl" id="productsl" aria-describedby="productslHid" placeholder="productsl">
+                <small id="productslHid" *ngIf="!productForm.get('productsl')?.valid && productForm.get('productsl')?.touched" class="form-text text-muted">Product count is required</small>
+            </div>
+            <div class="form-group" style="width: 300px">
+                <label for="SUB_ID">Nhà Cung Cấp:</label>
+                <select formControlName="SUB_ID" class="form-control" name="SUB_ID" id="SUB_ID">
+                    <option *ngFor="let supplier of suppliers" value="{{supplier.SUB_ID}}">{{supplier.SUB_Name}}</option>
+                </select>
+                <!-- <input type="text" class="form-control" name="catid" formControlName="catid" id="catid" aria-describedby="catidHid" placeholder="catid"> -->
+                <!-- <small id="catidHid" *ngIf="!productForm.get('catid')?.valid && productForm.get('catid')?.touched" class="form-text text-muted">Category id is required</small> -->
+            </div>
+            <div class="form-group" style="width: 300px">
+                <label for="T_ID">Thương Hiệu:</label>
+                <select formControlName="T_ID" class="form-control" name="T_ID" id="T_ID">
+                    <option *ngFor="let trademark of trademarks" value="{{trademark.T_ID}}">{{trademark.T_Name}}</option>
+                </select>
+                <!-- <input type="text" class="form-control" name="catid" formControlName="catid" id="catid" aria-describedby="catidHid" placeholder="catid"> -->
+                <!-- <small id="catidHid" *ngIf="!productForm.get('catid')?.valid && productForm.get('catid')?.touched" class="form-text text-muted">Category id is required</small> -->
+            </div>
+            <div class="form-group">
+                <label for="productimage">product image:</label>
+                <input type="file" class="form-control" name="productimage" formControlName="productimage" id="productimage" (change)="updateimage($event)" aria-describedby="productimageHid" placeholder="productimage">
+                <small id="productimageHid" *ngIf="!productForm.get('productimage')?.valid && productForm.get('productimage')?.touched" class="form-text text-muted">Product image is required</small>
+            </div>
+            
+            <div class="form-group" style="width: 300px">
+                <label for="catid">category:</label>
+                <select formControlName="catid" class="form-control" name="catid" id="catid">
+                    <option *ngFor="let category of categorys" value="{{category.CAT_ID}}">{{category.CatName}}</option>
+                </select>
+                <!-- <input type="text" class="form-control" name="catid" formControlName="catid" id="catid" aria-describedby="catidHid" placeholder="catid"> -->
+                <!-- <small id="catidHid" *ngIf="!productForm.get('catid')?.valid && productForm.get('catid')?.touched" class="form-text text-muted">Category id is required</small> -->
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+    </div>
+</form>
+<app-footeradmin></app-footeradmin>

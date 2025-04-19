@@ -1,0 +1,67 @@
+
+<app-headeradmin></app-headeradmin>
+
+<div class="container em-table" style="width: 100%; margin: auto" >
+    <div class="col-lg-4 col-6 text-left" style="text-align: center">
+        <form action="">
+            <div class="input-group">
+                <input type="text" class="form-control" name="searchText" id="" [(ngModel)]="searchtext"  aria-describedby="helpId" placeholder="Tìm kiếm sản phẩm">
+                <div class="input-group-append">
+                    <span class="input-group-text bg-transparent text-primary">
+                        <i class="fa fa-search"></i>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="headers">
+        <h2 class="table-title">manage products</h2>
+        <button class="btn add" routerLink="/addproduct">Add products</button>
+    </div>
+    
+    <table  class="table">
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Giá</th>
+                <th>Loại</th>
+                <th>Trạng Thái</th>
+                <th>Mô Tả</th>
+                <th>Số Lượng</th>
+                <th>NCC</th>
+                <th>Thương Hiệu</th>
+                <th>Ảnh</th>
+                <th *ngFor="let u of users ">{{u.name}}</th>
+            </tr>
+        </thead>
+        <tbody class="text-center" *ngFor="let pro of products| filter: searchtext| paginate: {itemsPerPage: tablesize, currentPage: page, totalItems: count}; let i = index">
+            
+            <tr>
+
+                <td>{{pro.ProName}}</td>
+                <td>{{pro.ProPrice | currency:'VND'}}</td>
+                <td>{{pro.CAT_ID}}</td>
+                <td>{{pro.ProStatus}}</td>
+                <td title="{{pro.ProDesc}}">......</td>
+                <td>{{pro.ProSl}}</td>
+                <td>{{pro.SUB_ID}}</td>
+                <td>{{pro.T_ID}}</td>
+                <td><img src="http://localhost/laravel_api/public/storage/img/{{pro.ProImage}}" alt="" style="width: 100px"> </td>
+                
+                <td>
+                    <button class="btn btn-info" routerLink="/editproduct/{{pro.PRO_ID}}">edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteProduct(pro.PRO_ID)" >delete</button>
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="ontabledatachange($event)" style="text-align: center"></pagination-controls>
+    <div *ngFor="let u of users">{{u.name}}</div>
+</div>
+
+<app-footeradmin></app-footeradmin>

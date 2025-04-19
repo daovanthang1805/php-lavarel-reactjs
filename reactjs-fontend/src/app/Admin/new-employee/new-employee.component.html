@@ -1,0 +1,30 @@
+<app-headeradmin></app-headeradmin>
+<h3 style="color: red" class="mb-3">Thêm Mới Nhân Viên</h3>
+<div class="mb-3">
+    <label for="employeename" class="form-label">Name Employee</label>
+    <input type="text" class="form-control" #employeename>
+</div>
+
+<div class="mb-3">
+    <label for="employeeemail" class="form-label">Email Employee</label>
+    <input type="email" class="form-control" #employeeemail>
+</div>
+
+<div class="mb-3">
+    <label for="employeephone" class="form-label">phone Employee</label>
+    <input type="text" class="form-control" #employeephone>
+</div>
+
+<div class="mb-3">
+    <label for="employeedate" class="form-label">Ngày sinh</label>
+    <input type="date" class="form-control" #employeedate>
+</div>
+<div class="mb-3">
+    <label for="employeegioitinh" class="form-label">Giới tính</label>
+    <input type="text" class="form-control" #employeegioitinh>
+</div>
+
+<div class="mb-3">
+    <button type="button" (click)="add(employeename.value, employeeemail.value, employeephone.value, employeedate.value, employeegioitinh.value); employeename.value=''; employeeemail.value=''; employeephone.value=''; employeedate.value=''; employeegioitinh.value=''" routerLink="/employadmin">Add</button>
+</div>
+<app-footeradmin></app-footeradmin>

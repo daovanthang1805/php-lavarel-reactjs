@@ -1,0 +1,37 @@
+<app-headeradmin></app-headeradmin>
+<div class="container em-table" style="width: 100%; margin: auto">
+    <div class="headers">
+        <h2 class="table-title">manage employees</h2>
+        <button class="btn add" routerLink="/addemployee">Add employees</button>
+    </div>
+    <table  class="table">
+        <thead>
+            <tr>
+
+                <th>employee</th>
+                <th>email</th>
+                <th>phone</th>
+                <th>Ngày sinh</th>
+                <th>Giới tính</th>
+            </tr>
+        </thead>
+        <tbody class="text-center" *ngFor="let em of employees">
+            <tr>
+
+                <td>{{em.Name}}</td>
+                <td>{{em.Email}}</td>
+                <td>{{em.Phone}}</td>
+                <td>{{em.date}}</td>
+                <td>{{em.gioitinh}}</td>
+                <td>
+                    <button class="btn btn-info" routerLink="/editemployee/{{em.EMP_ID}}">edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteEmployee(em.EMP_ID)">delete</button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+<app-footeradmin></app-footeradmin>

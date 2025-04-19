@@ -1,0 +1,30 @@
+<app-headeradmin></app-headeradmin>
+<div class="container em-table" style="width: 100%; margin: auto">
+    <div class="headers">
+        <h2 class="table-title">manage order</h2>
+    </div>
+    <table  class="table">
+        <thead>
+            <tr>
+
+                <th>STT</th>
+                <th>Giá</th>
+
+                
+            </tr>
+        </thead>
+        <tbody class="text-center" *ngFor="let o of orders ; let i=index">
+            <tr>
+
+                <td>{{i+1}}</td>
+                <td>{{o.order_price}}</td>
+
+                <td>
+                    <button class="btn btn-info" routerLink="/orderdetail/{{o.ORDERID}}">chi tiết</button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+<app-footeradmin></app-footeradmin>

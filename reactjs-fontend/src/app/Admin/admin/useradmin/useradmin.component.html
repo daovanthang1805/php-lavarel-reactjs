@@ -1,0 +1,38 @@
+<app-headeradmin></app-headeradmin>
+
+<div class="container em-table" style="width: 100%; margin: auto" >
+    <div class="headers">
+        <h2 class="table-title">manage user</h2>
+        <button class="btn add" routerLink="/register">Add user</button>
+    </div>
+    
+    <table  class="table">
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>email</th>
+
+
+            </tr>
+        </thead>
+        <tbody class="text-center" *ngFor="let us of users">
+            
+            <tr>
+
+                <td>{{us.name}}</td>
+                <td>{{us.email}}</td>
+
+
+
+
+                <td>
+                    <button class="btn btn-danger" onclick="return confirm('bạn chắc chắn muốn xoá ko?')" (click)="deleteUser(us.id)" >delete</button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+
+<app-footeradmin></app-footeradmin>

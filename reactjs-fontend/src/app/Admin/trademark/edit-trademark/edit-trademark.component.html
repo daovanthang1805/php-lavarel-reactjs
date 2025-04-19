@@ -1,0 +1,16 @@
+<app-headeradmin></app-headeradmin>
+<h3 style="color: red" class="mb-3">Cập Nhật Thương Hiệu</h3>
+<div class="mb-3">
+    <label for="Trademarkname" class="form-label">Name</label>
+    <input type="text" class="form-control" [(ngModel)]="trademark.T_Name" #Trademarkname>
+</div>
+
+<div class="mb-3">
+    <label for="Trademarkdesc" class="form-label">Mô Tả</label>
+    <input type="text" class="form-control" [(ngModel)]="trademark.T_desc" #Trademarkdesc>
+</div>
+
+<div class="mb-3">
+    <button type="button" (click)="update(Trademarkname.value, Trademarkdesc.value)" routerLink="/trademarkadmin">update</button>
+</div>
+<app-footeradmin></app-footeradmin>

@@ -1,0 +1,38 @@
+<app-headeradmin></app-headeradmin>
+<div class="container em-table" style="width: 100%; margin: auto">
+    <div class="headers">
+        <h2 class="table-title">manage supplier</h2>
+        <button class="btn add" routerLink="/addsupplier">Add suppliers</button>
+    </div>
+    <table  class="table">
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Mô Tả</th>
+
+            </tr>
+        </thead>
+        <tbody class="text-center" *ngFor="let s of suppliers">
+            <tr>
+
+                <td>{{s.SUB_Name}}</td>
+                <td>{{s.SUB_Phone}}</td>
+                <td>{{s.SUB_Email}}</td>
+                <td>{{s.SUB_desc}}</td>
+
+                <td>
+                    <button class="btn btn-info" routerLink="/editsupplier/{{s.SUB_ID}}">edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteSupplier(s.SUB_ID)">delete</button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+<app-footeradmin></app-footeradmin>
+

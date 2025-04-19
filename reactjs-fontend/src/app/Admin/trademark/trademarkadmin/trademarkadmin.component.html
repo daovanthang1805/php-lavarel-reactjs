@@ -1,0 +1,33 @@
+<app-headeradmin></app-headeradmin>
+<div class="container em-table" style="width: 100%; margin: auto">
+    <div class="headers">
+        <h2 class="table-title">manage trademark</h2>
+        <button class="btn add" routerLink="/addtrademark">Add trademarks</button>
+    </div>
+    <table  class="table">
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Mô Tả</th>
+
+            </tr>
+        </thead>
+        <tbody class="text-center" *ngFor="let t of trademarks">
+            <tr>
+
+                <td>{{t.T_Name}}</td>
+                <td>{{t.T_desc}}</td>
+
+                <td>
+                    <button class="btn btn-info" routerLink="/edittrademark/{{t.T_ID}}">edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteTrademark(t.T_ID)">delete</button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+<app-footeradmin></app-footeradmin>

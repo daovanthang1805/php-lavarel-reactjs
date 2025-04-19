@@ -1,0 +1,16 @@
+<app-headeradmin></app-headeradmin>
+<h3 style="color: red" class="mb-3">Thêm Mới Thương Hiệu</h3>
+<div class="mb-3">
+    <label for="Trademarkname" class="form-label">Name</label>
+    <input type="text" class="form-control" #Trademarkname>
+</div>
+
+<div class="mb-3">
+    <label for="Trademarkdesc" class="form-label">Mô Tả</label>
+    <input type="text" class="form-control" #Trademarkdesc>
+</div>
+
+<div class="mb-3">
+    <button type="button" (click)="add(Trademarkname.value, Trademarkdesc.value); Trademarkname.value=''; Trademarkdesc.value=''" routerLink="/trademarkadmin">Add</button>
+</div>
+<app-footeradmin></app-footeradmin>

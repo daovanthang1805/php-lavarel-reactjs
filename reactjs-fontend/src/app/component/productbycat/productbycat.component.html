@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<div class="container-fluid pt-5 pb-3">
+        
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">{{category.CatName}}</span></h2>
+    <div class="col-lg-4 col-6 text-left" >
+        <form action="">
+            <div class="input-group">
+                <input type="text" class="form-control" name="searchText" id="" [(ngModel)]="searchtext"  aria-describedby="helpId" placeholder="Tìm kiếm sản phẩm">
+                <div class="input-group-append">
+                    <span class="input-group-text bg-transparent text-primary">
+                        <i class="fa fa-search"></i>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr>
+    <div class="row px-xl-5" >
+        <div class="col-lg-3 col-md-4 col-sm-6 pb-1" *ngFor="let pro of products | filter: searchtext| paginate: {itemsPerPage: tablesize, currentPage: page, totalItems: count}; let i = index" >
+            <div class="product-item bg-light mb-4" >
+                <div class="product-img position-relative overflow-hidden" >
+                    <img class="img-fluid w-100" style="max-height: 280px; min-height: 280px" src="http://localhost/laravel_api/public/storage/img/{{pro.ProImage}}" alt="">
+                    <div class="product-action">
+                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-search"></i></a>
+                    </div>
+                </div>
+                <div class="text-center py-4">
+                    <a class="h6 text-decoration-none text-truncate"  routerLink="/detail/{{pro.PRO_ID}}">{{pro.ProName}}</a>
+                    <div class="d-flex align-items-center justify-content-center mt-2">
+                        <h5>{{pro.ProPrice | number}} vnđ</h5><h6 class="text-muted ml-2"><del>{{pro.ProPrice | number}} vnđ</del></h6>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-1">
+                        <small class="fa fa-star text-primary mr-1"></small>
+                        <small class="fa fa-star text-primary mr-1"></small>
+                        <small class="fa fa-star text-primary mr-1"></small>
+                        <small class="fa fa-star text-primary mr-1"></small>
+                        <small class="fa fa-star text-primary mr-1"></small>
+                        <small>({{pro.ProStatus}})</small>
+                    </div>
+                    <button (click)="onaddtocart(pro)">Add To Cart</button>
+                </div>
+            </div>
+            
+        </div>
+        
+        
+        
+    </div>
+
+    <pagination-controls (pageChange)="ontabledatachange($event)" style="text-align: center"></pagination-controls>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,16 @@
+<app-headeradmin></app-headeradmin>
+<h3 style="color: red" class="mb-3">Cập Nhật Loại Sản Phẩm</h3>
+<div class="mb-3">
+    <label for="categoryname" class="form-label">Name Category</label>
+    <input type="text" class="form-control" [(ngModel)]="category.CatName" #categoryname>
+</div>
+
+<div class="mb-3">
+    <label for="categorystatus" class="form-label">Trạng Thái</label>
+    <input type="text" class="form-control" [(ngModel)]="category.CatStatus" #categorystatus>
+</div>
+
+<div class="mb-3">
+    <button type="button" (click)="update(categoryname.value, categorystatus.value)" routerLink="/categoryadmin">update</button>
+</div>
+<app-footeradmin></app-footeradmin>

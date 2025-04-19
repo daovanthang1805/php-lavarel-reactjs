@@ -1,0 +1,63 @@
+<app-headeradmin></app-headeradmin>
+<h3 style="color: red" class="mb-3">Cập Nhật Sản Phẩm</h3>
+<div class="mb-3">
+    <label for="productname" class="form-label">Name Product</label>
+    <input type="text" class="form-control" [(ngModel)]="product.ProName" #productname>
+</div>
+
+<div class="mb-3">
+    <label for="productprice" class="form-label">Giá</label>
+    <input type="text" class="form-control" [(ngModel)]="product.ProPrice" #productprice>
+</div>
+
+<div class="mb-3">
+    <label for="catid" class="form-label">Loại</label>
+    <select class="form-control" id="catid" #catid type="text" [(ngModel)]="product.CAT_ID">
+        <option   *ngFor="let category of categorys" value="{{category.CAT_ID}}">{{category.CatName}}</option>
+    </select>
+    
+    <!-- <input type="text" class="form-control" [(ngModel)]="product.CAT_ID" #catid> -->
+</div>
+<div class="mb-3">
+    <label for="SUB_ID" class="form-label">Nhà Cung Cấp</label>
+    <select class="form-control" id="SUB_ID" #SUB_ID type="text" [(ngModel)]="product.SUB_ID">
+        <option   *ngFor="let s of suppliers" value="{{s.SUB_ID}}">{{s.SUB_Name}}</option>
+    </select>
+    
+    <!-- <input type="text" class="form-control" [(ngModel)]="product.CAT_ID" #catid> -->
+</div>
+<div class="mb-3">
+    <label for="T_ID" class="form-label">Thương Hiệu</label>
+    <select class="form-control" id="T_ID" #T_ID type="text" [(ngModel)]="product.T_ID">
+        <option   *ngFor="let t of trademarks" value="{{t.T_ID}}">{{t.T_Name}}</option>
+    </select>
+    
+    <!-- <input type="text" class="form-control" [(ngModel)]="product.CAT_ID" #catid> -->
+</div>
+
+<div class="mb-3">
+    <label for="productstatus" class="form-label">Trạng Thái</label>
+    <input type="text" class="form-control" [(ngModel)]="product.ProStatus" #productstatus>
+</div>
+
+<div class="mb-3">
+    <label for="productdesc" class="form-label">Mô Tả</label>
+    <input type="text" class="form-control" [(ngModel)]="product.ProDesc" #productdesc>
+</div>
+
+<div class="mb-3">
+    <label for="productsl" class="form-label">Số Lượng</label>
+    <input type="text" class="form-control" [(ngModel)]="product.ProSl" #productsl>
+</div>
+
+<div class="mb-3">
+    <label for="productimage" class="form-label">Ảnh</label>
+    <img src="http://localhost/laravel_api/public/storage/img/{{product.ProImage}}" alt="" width="150px">
+    <input type="text" class="form-control" [(ngModel)]="product.ProImage" #productimage>
+</div>
+
+<div class="mb-3">
+    <button type="button" (click)="update(productname.value, productprice.value, catid.value,SUB_ID.value,T_ID.value, productstatus.value, productdesc.value, productsl.value, productimage.value)" routerLink="/productadmin">update</button>
+</div>
+
+<app-footeradmin></app-footeradmin>

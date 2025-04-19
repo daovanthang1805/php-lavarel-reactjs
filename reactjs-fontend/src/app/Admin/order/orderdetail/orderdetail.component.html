@@ -1,0 +1,78 @@
+<app-headeradmin></app-headeradmin>
+<div class="container em-table" style="width: 100%; margin: auto">
+    <div class="headers">
+        <h2 class="table-title">order detail</h2>
+
+    </div>
+    <table  class="table">
+        <thead>
+            <tr>
+
+
+                <th>STT</th>
+                <th>id đơn hàng</th>
+                <th>ảnh</th>
+                <th>Tên Sản phẩm</th>
+                <th>số lượng sản phẩm</th>
+                <th>Giá</th>
+
+
+                
+            </tr>
+        </thead>
+        <tbody class="text-center" *ngFor="let di of orderdetail; let i=index">
+            <tr>
+
+                <td>{{i+1}}</td>
+                <td>{{di.ORDERID}}</td>
+                <img src="http://localhost/laravel_api/public/storage/img/{{di.image}}" alt="" style="width: 100px">
+                <td>{{di.PRO_Name}}</td>
+                <td>{{di.ORDERSL}}</td>
+                <td>{{di.ORDERPRICE}}</td>
+
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+<div class="container em-table" style="width: 100%; margin: auto">
+    <div class="headers">
+        <h2 class="table-title">Khách hàng</h2>
+
+    </div>
+    <table  class="table">
+        <thead>
+            <tr>
+
+
+                <th>STT</th>
+                <th>Tên Khách</th>
+                <th>Tuổi</th>
+                <th>Giới Tính</th>
+                <th>Email</th>
+                <th>Địa Chỉ</th>
+                <th>Phone</th>
+                <th>Id đơn hàng</th>
+
+                
+            </tr>
+        </thead>
+        <tbody class="text-center" *ngFor="let kh of orderkhachhang; let i=index">
+            <tr>
+
+                <td>{{i+1}}</td>
+                <td>{{kh.KHNAME}}</td>
+                <td>{{kh.KHTUOI}}</td>
+                <td>{{kh.KHGT}}</td>
+                <td>{{kh.KHEMAIL}}</td>
+                <td>{{kh.KHDC}}</td>
+                <td>{{kh.KHPHONE}}</td>
+                <td>{{kh.ORDERID}}</td>
+
+
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+<app-footeradmin></app-footeradmin>
